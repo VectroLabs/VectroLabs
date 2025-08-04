@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - VectroLabs</title>
+    <meta name="description" content="Terms of Service for VectroLabs - Digital Innovation & Open Source Excellence">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1E40AF',
+                        'secondary': '#6366F1',
+                        'accent': '#10B981',
+                        'bg-main': '#F8FAFC',
+                        'text-main': '#1F2937',
+                        'neutral': '#E5E7EB'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1E40AF 0%, #6366F1 100%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-bg-main text-text-main">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-neutral z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">VectroLabs</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-text-main hover:text-primary transition-colors duration-200">Home</a>
+                        <a href="index.html#services" class="text-text-main hover:text-primary transition-colors duration-200">Services</a>
+                        <a href="index.html#projects" class="text-text-main hover:text-primary transition-colors duration-200">Projects</a>
+                        <a href="index.html#team" class="text-text-main hover:text-primary transition-colors duration-200">Team</a>
+                        <a href="tos.html" class="text-primary font-medium">Terms of Service</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-main hover:text-primary">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-neutral">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-text-main hover:text-primary transition-colors duration-200">Home</a>
+                <a href="index.html#services" class="block px-3 py-2 text-text-main hover:text-primary transition-colors duration-200">Services</a>
+                <a href="index.html#projects" class="block px-3 py-2 text-text-main hover:text-primary transition-colors duration-200">Projects</a>
+                <a href="index.html#team" class="block px-3 py-2 text-text-main hover:text-primary transition-colors duration-200">Team</a>
+                <a href="tos.html" class="block px-3 py-2 text-primary font-medium">Terms of Service</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-20 pb-12 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Terms of Service</h1>
+            <p class="text-xl opacity-90">Last updated: August 4, 2025</p>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                
+                <h2 class="text-3xl font-bold text-text-main mb-6">1. Acceptance of Terms</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    By accessing and using VectroLabs' website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">2. Services Description</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    VectroLabs provides digital innovation services including but not limited to:
+                </p>
+                <ul class="mb-6 text-gray-600 leading-relaxed list-disc pl-6">
+                    <li>Digital product development</li>
+                    <li>Framework and library creation</li>
+                    <li>Open source software development</li>
+                    <li>Technical consulting services</li>
+                    <li>Software architecture and design</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">3. Intellectual Property Rights</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    All content, code, designs, and materials on this website are the intellectual property of VectroLabs unless otherwise specified. Open source projects are governed by their respective licenses as indicated in their repositories.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">4. User Responsibilities</h2>
+                <p class="mb-4 text-gray-600 leading-relaxed">You agree to:</p>
+                <ul class="mb-6 text-gray-600 leading-relaxed list-disc pl-6">
+                    <li>Use our services in compliance with all applicable laws and regulations</li>
+                    <li>Not attempt to gain unauthorized access to our systems or networks</li>
+                    <li>Not use our services for any illegal or unauthorized purpose</li>
+                    <li>Respect the intellectual property rights of VectroLabs and third parties</li>
+                    <li>Provide accurate and complete information when required</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">5. Open Source Software</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    VectroLabs contributes to and maintains various open source projects. Each open source project is governed by its specific license terms, which take precedence over these general terms for that particular software. Users are encouraged to review the license terms for each project before use.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">6. Privacy Policy</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    Your privacy is important to us. We collect minimal personal information necessary to provide our services. We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in our Privacy Policy.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">7. Limitation of Liability</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    VectroLabs shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">8. Service Availability</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    We strive to maintain high availability of our services but cannot guarantee uninterrupted access. We reserve the right to modify, suspend, or discontinue any part of our services at any time with or without notice.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">9. Indemnification</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    You agree to indemnify and hold harmless VectroLabs, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services or violation of these terms.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">10. Governing Law</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which VectroLabs operates, without regard to its conflict of law provisions.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">11. Changes to Terms</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on this website. Your continued use of our services after any changes constitutes acceptance of the new terms.
+                </p>
+
+                <h2 class="text-3xl font-bold text-text-main mb-6">12. Contact Information</h2>
+                <p class="mb-6 text-gray-600 leading-relaxed">
+                    If you have any questions about these Terms of Service, please contact us through our website or GitHub repositories.
+                </p>
+
+                <div class="bg-bg-main rounded-lg p-6 mt-8">
+                    <h3 class="text-xl font-semibold text-text-main mb-3">Questions or Concerns?</h3>
+                    <p class="text-gray-600 mb-4">
+                        If you have any questions about these terms or need clarification on any points, we encourage you to reach out to us through our open source community channels.
+                    </p>
+                    <a href="index.html" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors">
+                        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+                        Back to Home
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-main text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-bold mb-4">VectroLabs</div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Creating innovative digital products, frameworks, and open source solutions for the future of technology.
+                    </p>
+                     <div class="flex space-x-4">
+                        <a href="https://github.com/VectroLabs" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://discord.gg/JhWkB9TQeC" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="discord" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="tos.html" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2025 VectroLabs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

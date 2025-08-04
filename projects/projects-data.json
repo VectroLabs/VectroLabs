@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "title": "AIO Discord Bot",
+      "description": "A lightweight, all-in-one discord bot with advanced features like antinuke, globalchat, moderation and utility commands.",
+      "image": "https://via.placeholder.com/400x200/1E40AF/ffffff?text=Discord+Bot",
+      "technologies": ["Node.js", "Nemx"],
+      "tags": ["bot", "discord bot"],
+      "category": "DiscordBot",
+      "status": "active",
+      "github_url": "https://github.com/VectroLabs/aio-discordbot.git"
+    }
+  ]
+}

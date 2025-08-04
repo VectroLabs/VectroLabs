@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - VectroLabs</title>
+    <meta name="description" content="Meet the talented individuals behind VectroLabs - passionate developers, designers, and innovators creating exceptional digital experiences.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4C6EF5',
+                        'primary-dark': '#3B5BDB',
+                        'secondary': '#9775FA',
+                        'accent': '#51CF66',
+                        'bg-main': '#FAFBFC',
+                        'text-main': '#1A1A1A',
+                        'text-secondary': '#6C757D',
+                        'neutral': '#E9ECEF'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4C6EF5 0%, #9775FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-bg-main text-text-main">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-lg border-b border-neutral z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <img src="logo.jpg" alt="VectroLabs Logo" class="h-10 w-10 rounded-lg">
+                    <div class="text-2xl font-bold gradient-text">VectroLabs</div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Home</a>
+                        <a href="index.html#about" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">About</a>
+                        <a href="index.html#services" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Services</a>
+                        <a href="projects.html" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Our Work</a>
+                        <a href="team.html" class="text-primary font-medium border-b-2 border-primary">Team</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-main hover:text-primary p-2">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg border-t border-neutral">
+            <div class="px-4 py-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Home</a>
+                <a href="index.html#about" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">About</a>
+                <a href="index.html#services" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Services</a>
+                <a href="projects.html" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Our Work</a>
+                <a href="team.html" class="block px-4 py-3 text-primary font-medium bg-primary/10 rounded-lg">Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-fade-in-down">
+                <span class="text-sm font-medium">馃懃 Our Amazing Team</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 animate-fade-in-up">
+                Meet Our Team
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
+                Talented individuals passionate about creating exceptional digital experiences and pushing the boundaries of technology.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="team-container" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Loading state -->
+                <div class="col-span-full flex justify-center">
+                    <div class="loading-spinner border-4 border-neutral border-t-primary rounded-full w-12 h-12 animate-spin"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-bg-main">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Join Our Team</h2>
+            <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+                We're always looking for talented individuals who share our passion for innovation and excellence.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#contact" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center space-x-2 transition-all duration-300 hover:scale-105 shadow-lg">
+                    <span>Get In Touch</span>
+                    <i data-feather="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="projects.html" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                    <span>View Our Work</span>
+                    <i data-feather="external-link" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-main text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="logo.jpg" alt="VectroLabs Logo" class="h-8 w-8 rounded-lg">
+                        <div class="text-2xl font-bold">VectroLabs</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Creating innovative digital products, frameworks, and open source solutions for the future of technology.
+                    </p>
+                     <div class="flex space-x-4">
+                        <a href="https://github.com/VectroLabs" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://discord.gg/JhWkB9TQeC" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="discord" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="team.html" class="text-gray-300 hover:text-white transition-colors">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="tos.html" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 VectroLabs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

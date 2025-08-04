@@ -1,0 +1,40 @@
+{
+  "team": [
+    {
+      "name": "Iscordian",
+      "role": "Founder",
+      "bio": "Backend developer. Passionate about building products that make a difference.",
+      "avatar": "https://ui-avatars.com/api/?name=Iscordian&background=1E40AF&color=ffffff&size=128",
+      "social": {
+        "github": "https://github.com/iscordian"
+      }
+    },
+    {
+      "name": "Sahil",
+      "role": "Founder",
+      "bio": "Advanced NodeJs developer and a nice administrator.",
+      "avatar": "https://ui-avatars.com/api/?name=Sahil&background=6366F1&color=ffffff&size=128",
+      "social": {
+        "github": "https://github.com/dev-odf"
+      }
+    },
+    {
+      "name": "Devil",
+      "role": "Founder",
+      "bio": "Rust developer.",
+      "avatar": "https://ui-avatars.com/api/?name=Devil&background=10B981&color=ffffff&size=128",
+      "social": {
+        "github": "https://github.com/darknessking13"
+      }
+    },
+    {
+      "name": "Prifd",
+      "role": "Founder",
+      "bio": "Java, React, Developer.",
+      "avatar": "https://ui-avatars.com/api/?name=Prifd&background=1E40AF&color=ffffff&size=128",
+      "social": {
+        "github": "https://github.com/prifd74"
+      }
+    }
+  ]
+}

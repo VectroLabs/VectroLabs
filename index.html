@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectroLabs - Digital Innovation & Open Source Excellence</title>
+    <meta name="description" content="VectroLabs creates cutting-edge digital products, frameworks, and open source solutions. Discover our innovative tech projects and talented team.">
+    <meta name="keywords" content="VectroLabs, digital products, frameworks, open source, tech company, software development">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4C6EF5',
+                        'primary-dark': '#3B5BDB',
+                        'secondary': '#9775FA',
+                        'accent': '#51CF66',
+                        'bg-main': '#FAFBFC',
+                        'text-main': '#1A1A1A',
+                        'text-secondary': '#6C757D',
+                        'neutral': '#E9ECEF'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4C6EF5 0%, #9775FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4C6EF5 0%, #9775FA 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px rgba(76, 110, 245, 0.4);
+        }
+        
+        .section-divider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(76, 110, 245, 0.05), transparent);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="font-sans bg-bg-main text-text-main overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-lg border-b border-neutral z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <img src="logo.jpg" alt="VectroLabs Logo" class="h-10 w-10 rounded-lg">
+                    <div class="text-2xl font-bold gradient-text">VectroLabs</div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Home</a>
+                        <a href="#about" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">About</a>
+                        <a href="#services" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Services</a>
+                        <a href="projects.html" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Our Work</a>
+                        <a href="team.html" class="text-text-secondary hover:text-primary font-medium transition-all duration-200 hover:scale-105">Team</a>
+                        <a href="#contact" class="btn-primary text-white px-6 py-2 rounded-full font-medium">Get Started</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-main hover:text-primary p-2">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg border-t border-neutral">
+            <div class="px-4 py-4 space-y-2">
+                <a href="#home" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Home</a>
+                <a href="#about" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">About</a>
+                <a href="#services" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Services</a>
+                <a href="projects.html" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Our Work</a>
+                <a href="team.html" class="block px-4 py-3 text-text-secondary hover:text-primary font-medium rounded-lg hover:bg-gray-50 transition-colors duration-200">Team</a>
+                <a href="#contact" class="block mx-4 mt-4 btn-primary text-white px-6 py-3 rounded-full font-medium text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center gradient-bg hero-pattern overflow-hidden">
+        <!-- Hero Content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-fade-in-down">
+                        <span class="text-sm font-medium">馃殌 Innovating the Future</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight animate-fade-in-up">
+                        Digital Innovation
+                        <span class="block gradient-text bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Redefined</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed animate-fade-in-up">
+                        We create cutting-edge digital products, frameworks, and open source solutions that drive the future of technology.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
+                        <a href="projects.html" class="btn-primary text-white px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center space-x-2 shadow-2xl">
+                            <span>See Our Works</span>
+                            <i data-feather="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="team.html" class="glass text-white border-2 border-white/30 hover:bg-white/20 px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                            <span>Meet Our Team</span>
+                            <i data-feather="users" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20 animate-fade-in-up">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2">50+</div>
+                            <div class="text-sm opacity-80">Projects Delivered</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2">8</div>
+                            <div class="text-sm opacity-80">Team Members</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2">100%</div>
+                            <div class="text-sm opacity-80">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image/Illustration -->
+                <div class="relative animate-float">
+                    
+                    <!-- Background decoration -->
+                    <div class="absolute top-4 right-4 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-4 left-4 w-48 h-48 bg-accent/20 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="inline-flex items-center bg-primary/10 text-primary rounded-full px-4 py-2 mb-6">
+                        <span class="text-sm font-medium">About VectroLabs</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+                        Pioneering Digital Excellence
+                    </h2>
+                    <p class="text-xl text-text-secondary mb-6 leading-relaxed">
+                        Founded with a vision to revolutionize digital innovation, VectroLabs stands at the forefront of technology development. We combine cutting-edge expertise with creative problem-solving to deliver exceptional digital solutions.
+                    </p>
+                    <p class="text-lg text-text-secondary mb-8 leading-relaxed">
+                        Our team of passionate developers, designers, and innovators work tirelessly to create products that not only meet today's needs but anticipate tomorrow's challenges. From open-source frameworks to enterprise solutions, we're committed to excellence in every project.
+                    </p>
+                    
+                    <!-- Key Values -->
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <i data-feather="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="text-lg font-medium">Innovation-driven development</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                                <i data-feather="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="text-lg font-medium">Open-source community commitment</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <i data-feather="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="text-lg font-medium">Quality-first approach</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative fade-in">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-br from-primary to-primary-dark p-6 rounded-2xl text-white">
+                                <div class="text-3xl font-bold mb-2">5+</div>
+                                <div class="text-sm opacity-90">Years Experience</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-secondary to-purple-600 p-6 rounded-2xl text-white">
+                                <div class="text-3xl font-bold mb-2">20+</div>
+                                <div class="text-sm opacity-90">Open Source Projects</div>
+                            </div>
+                        </div>
+                        <div class="space-y-6 mt-8">
+                            <div class="bg-gradient-to-br from-accent to-green-600 p-6 rounded-2xl text-white">
+                                <div class="text-3xl font-bold mb-2">10k+</div>
+                                <div class="text-sm opacity-90">Downloads</div>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-500 to-red-500 p-6 rounded-2xl text-white">
+                                <div class="text-3xl font-bold mb-2">24/7</div>
+                                <div class="text-sm opacity-90">Support Available</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Background decoration -->
+                    <div class="absolute -top-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/10 rounded-full blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-bg-main">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center bg-secondary/10 text-secondary rounded-full px-4 py-2 mb-6">
+                    <span class="text-sm font-medium">Our Services</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">What We Do</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                    We specialize in creating innovative digital solutions that push the boundaries of what's possible in modern technology.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group card-hover bg-white rounded-2xl p-8 shadow-lg fade-in border border-neutral/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="code" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-text-main">Digital Products</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        We build scalable, user-centric digital products that solve real-world problems with innovative technology solutions and modern design principles.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Web Applications
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Mobile Solutions
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            API Development
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group card-hover bg-white rounded-2xl p-8 shadow-lg fade-in border border-neutral/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="layers" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-text-main">Frameworks & Libraries</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Custom frameworks and libraries designed to accelerate development and improve code quality across projects with reusable components.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            React Components
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Node.js Packages
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Development Tools
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group card-hover bg-white rounded-2xl p-8 shadow-lg fade-in border border-neutral/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="git-branch" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-text-main">Open Source</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Contributing to the developer community with high-quality open source projects and tools that make development easier and more efficient.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            GitHub Projects
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Community Support
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Documentation
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group card-hover bg-white rounded-2xl p-8 shadow-lg fade-in border border-neutral/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="bot" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-text-main">Discord Bots</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Advanced Discord bots with moderation, analytics, and community management features for enhanced server experiences.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Custom Commands
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Moderation Tools
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Analytics Dashboard
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group card-hover bg-white rounded-2xl p-8 shadow-lg fade-in border border-neutral/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="database" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-text-main">Cloud Solutions</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Scalable cloud infrastructure and services designed for modern applications with high availability and performance.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Microservices
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Container Orchestration
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Load Balancing
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group card-hover bg-white rounded-2xl p-8 shadow-lg fade-in border border-neutral/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-feather="cpu" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-text-main">AI Integration</h3>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Machine learning powered solutions for content generation, automation, and intelligent data processing capabilities.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Content Generation
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Data Analysis
+                        </div>
+                        <div class="flex items-center text-sm text-text-secondary">
+                            <i data-feather="check" class="w-4 h-4 text-accent mr-2"></i>
+                            Automation Tools
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Preview Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center bg-accent/10 text-accent rounded-full px-4 py-2 mb-6">
+                    <span class="text-sm font-medium">Featured Projects</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Our Latest Work</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                    Discover the innovative solutions we've built for clients and the open source community.
+                </p>
+            </div>
+            
+            <div id="projects-container" class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+                <!-- Loading state -->
+                <div class="col-span-full flex justify-center">
+                    <div class="loading-spinner border-4 border-neutral border-t-primary rounded-full w-12 h-12 animate-spin"></div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <a href="projects.html" class="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg space-x-2">
+                    <span>View All Projects</span>
+                    <i data-feather="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Preview Section -->
+    <section id="team" class="py-20 bg-bg-main">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center bg-secondary/10 text-secondary rounded-full px-4 py-2 mb-6">
+                    <span class="text-sm font-medium">Our Team</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Meet Our Experts</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                    Talented individuals passionate about creating exceptional digital experiences and pushing the boundaries of technology.
+                </p>
+            </div>
+            
+            <div id="team-container" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
+                <!-- Loading state -->
+                <div class="col-span-full flex justify-center">
+                    <div class="loading-spinner border-4 border-neutral border-t-primary rounded-full w-12 h-12 animate-spin"></div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <a href="team.html" class="inline-flex items-center border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 space-x-2">
+                    <span>Meet All Team Members</span>
+                    <i data-feather="users" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Currently Disabled -->
+    <!-- 
+    <section id="contact" class="py-20 bg-bg-main">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to start your next project? We'd love to hear from you.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-8 fade-in">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-neutral rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-neutral rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                        <input type="text" id="company" name="company" 
+                               class="w-full px-4 py-3 border border-neutral rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                        <input type="text" id="subject" name="subject" required 
+                               class="w-full px-4 py-3 border border-neutral rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required 
+                                  class="w-full px-4 py-3 border border-neutral rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn" 
+                            class="w-full bg-primary hover:bg-blue-800 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Send Message
+                    </button>
+                </form>
+                
+                <div id="form-message" class="mt-4 text-center hidden"></div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Footer -->
+    <footer class="bg-text-main text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-bold mb-4">VectroLabs</div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Creating innovative digital products, frameworks, and open source solutions for the future of technology.
+                    </p>
+                     <div class="flex space-x-4">
+                        <a href="https://github.com/VectroLabs" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://discord.gg/JhWkB9TQeC" class="text-gray-300 hover:text-white transition-colors">
+                            <i data-feather="discord" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#team" class="text-gray-300 hover:text-white transition-colors">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="tos.html" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>vectrolabs.official@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 VectroLabs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
